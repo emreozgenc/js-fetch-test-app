@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <title>Fetch App</title>
+
+    <style>
+
+        .invisible {
+            display: none;
+        }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-danger">
+        <div class="container">
+            <div class="navbar-brand">Fetch App</div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">Search member</div>
+                    <div class="card-body">
+                        <form id="searchForm">
+                            <div class="form-group">
+                                <input id="searchInput" type="text" class="form-control" placeholder="Search an username... ">
+                            </div>
+                        </form>
+                        <div id="warning" class="alert alert-danger invisible">There isn't any user registered with that username.</div>
+                    </div>
+                    <div class="card-footer">Available usernames : "Bret", "Antonette", "Karianne", "Kamren"</div>
+                </div> 
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12 pb-5" id="profile"></div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
