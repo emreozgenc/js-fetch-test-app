@@ -1,5 +1,8 @@
+/* ### UIController ### */
 var UIController = (function () {
-    var Selectors = {
+
+    // Maybe some constant defination try :D
+    const Selectors = {
         searchInput: '#searchInput',
         searchForm: '#searchForm',
         warning: '#warning',
@@ -9,6 +12,8 @@ var UIController = (function () {
     var searchInput = document.querySelector(Selectors.searchInput);
     var profile = document.querySelector(Selectors.profile);
     var warning = document.querySelector(Selectors.warning);
+
+    // Getter - Setter functions
 
     function getSearchInput() {
         return searchInput;
@@ -71,11 +76,13 @@ var UIController = (function () {
     }
 })();
 
+/* ### FetchController ### */
 var FetchController = (function () {
+    // ?username=testUserName
     var url = 'https://jsonplaceholder.typicode.com/users?username=';
 
 
-
+    // Fetch data from server
     async function getUserData(username) {
         try {
             var response = await fetch(url + username);
@@ -91,18 +98,25 @@ var FetchController = (function () {
     }
 })();
 
-
+/* ### App ### */
 var App = (function (UIController, FetchController) {
     
     function init() {
+        // Set listener for search input
         UIController.getSearchInput().addEventListener('keyup', async function() {
             data = await FetchController.getUserData(UIController.getSearchValue());
 
             if(data.length > 0) {
+                // Result is a json array so we need to return first index
                 UIController.setUserInfo(data[0]);
+
+                // Don't show warning message if result isn't empty
                 UIController.setWarning(false);
             } else {
+                // Clear profile if result is empty
                 UIController.clearUserInfo();
+
+                // Show warning message if result is empty
                 UIController.setWarning(true);
             }
         });
@@ -112,7 +126,7 @@ var App = (function (UIController, FetchController) {
         init
     }
     
-})(UIController, FetchController);
+})(UIController, FetchController); // Don't forget to send modules as paramaters
 
 App.init();
 
